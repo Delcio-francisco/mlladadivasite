@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ML.LA DÁDIVA - Agência de Viagens e Centro de Formação Profissional em Angola. Cursos certificados, viagens internacionais e consultoria especializada.">
+    <meta name="keywords" content="formação profissional angola, agência viagens angola, cursos luanda, mobilidade internacional, consultoria">
+    <title>ML.LA DÁDIVA - Agência de Viagens & Centro de Formação</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* RESET E CONFIGURAÇÕES GLOBAIS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --rosa-vibrante: #c52e72;
+            --rosa-claro: #e0468f;
+            --preto-vinho: #1b0c13;
+            --branco: #FFFFFF;
+            --cinza-claro: #f5f5f5;
+            --degrade-oficial: linear-gradient(135deg, #c52e72 0%, #2a0e1f 100%);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: #333;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-rosa {
+            background-color: var(--rosa-vibrante);
+            color: var(--branco);
+        }
+
+        .btn-rosa:hover {
+            background-color: var(--branco);
+            color: var(--preto-vinho);
+            box-shadow: 0 5px 15px rgba(197, 46, 114, 0.3);
+        }
+
+        .btn-branco {
+            background-color: var(--branco);
+            color: var(--rosa-vibrante);
+        }
+
+        .btn-branco:hover {
+            background-color: var(--rosa-vibrante);
+            color: var(--branco);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--preto-vinho);
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+        }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
+        }
+
+        header.scrolled {
+            background-color: var(--branco);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        header.scrolled .logo {
+            color: var(--rosa-vibrante);
+        }
+
+        header.scrolled .nav-links a {
+            color: var(--preto-vinho);
+        }
+
+        header.scrolled .hamburger span {
+            background-color: var(--rosa-vibrante);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--branco);
+        }
+
+        .logo img {
+            width: 80px;
+            transition: filter 0.4s ease;
+            filter: brightness(0) invert(1);
+        }
+
+        header.scrolled .logo img {
+            filter: brightness(0) invert(0);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--branco);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--rosa-claro);
+        }
+
+        .header-cta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cta-button {
+            background-color: var(--branco);
+            color: var(--rosa-vibrante);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: var(--rosa-vibrante);
+            color: var(--branco);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--branco);
+            transition: all 0.3s ease;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: var(--degrade-oficial);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 0 50px;
+            position: relative;
+            color: var(--branco);
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            max-height: 500px;
+            object-fit: cover;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 90%;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* SOBRE NÓS */
+        .sobre {
+            background-color: var(--cinza-claro);
+        }
+
+        /* Intro Sobre */
+        .sobre-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .sobre-intro-content h2 {
+            color: var(--preto-vinho);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .sobre-intro-content p {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .sobre-intro-content p.destaque {
+            font-size: 1.25rem;
+            color: var(--preto-vinho);
+            font-weight: 500;
+            border-left: 4px solid var(--rosa-vibrante);
+            padding-left: 20px;
+            margin-bottom: 25px;
+        }
+
+        .sobre-intro-imagem img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Áreas de Actuação */
+        .areas-atuacao {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .area-card {
+            background: var(--branco);
+            padding: 35px 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-top: 4px solid transparent;
+        }
+
+        .area-card:hover {
+            transform: translateY(-10px);
+            border-top-color: var(--rosa-vibrante);
+            box-shadow: 0 15px 40px rgba(197, 46, 114, 0.2);
+        }
+
+        .area-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: var(--degrade-oficial);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--branco);
+            font-size: 2rem;
+        }
+
+        .area-card h3 {
+            color: var(--preto-vinho);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .area-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Missão, Visão e Valores */
+        .mvv-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .mvv-card {
+            background: var(--branco);
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mvv-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--degrade-oficial);
+        }
+
+        .mvv-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(197, 46, 114, 0.1) 0%, rgba(42, 14, 31, 0.1) 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--rosa-vibrante);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .mvv-card h3 {
+            color: var(--preto-vinho);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .mvv-card p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* RESPONSIVIDADE SOBRE */
+        @media (max-width: 768px) {
+            .sobre-intro {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .sobre-intro-content h2 {
+                font-size: 2rem;
+            }
+
+            .sobre-intro-content p.destaque {
+                font-size: 1.1rem;
+            }
+
+            .areas-atuacao {
+                grid-template-columns: 1fr;
+            }
+
+            .mvv-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* SERVIÇOS */
+        .servicos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .servico-card {
+            background: var(--branco);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .servico-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .servico-imagem {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .servico-imagem img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .servico-card:hover .servico-imagem img {
+            transform: scale(1.1);
+        }
+
+        .servico-conteudo {
+            padding: 25px;
+        }
+
+        .servico-conteudo h3 {
+            color: var(--preto-vinho);
+            margin-bottom: 15px;
+        }
+
+        .servico-conteudo p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* FORMAÇÃO */
+        .formacao {
+            background-color: var(--cinza-claro);
+        }
+
+        .formacao-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .curso-card {
+            background: var(--branco);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .curso-imagem {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .curso-imagem img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .curso-conteudo {
+            padding: 25px;
+        }
+
+        .curso-conteudo h3 {
+            color: var(--preto-vinho);
+            margin-bottom: 10px;
+        }
+
+        .curso-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        .curso-conteudo p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* VIAGENS */
+        .viagens-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .viagem-card {
+            background: var(--branco);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .viagem-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .viagem-imagem {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .viagem-imagem img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .viagem-card:hover .viagem-imagem img {
+            transform: scale(1.1);
+        }
+
+        .viagem-preco {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--rosa-vibrante);
+            color: var(--branco);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .viagem-conteudo {
+            padding: 25px;
+        }
+
+        .viagem-conteudo h3 {
+            color: var(--preto-vinho);
+            margin-bottom: 10px;
+        }
+
+        .viagem-info {
+            display: flex;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        .viagem-info span {
+            margin-right: 15px;
+        }
+
+        .viagem-conteudo p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* TESTEMUNHOS */
+        .testemunhos {
+            background: var(--degrade-oficial);
+            color: var(--branco);
+        }
+
+        .testemunhos .section-title h2,
+        .testemunhos .section-title p {
+            color: var(--branco);
+        }
+
+        .testemunhos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testemunho-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .testemunho-texto {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .testemunho-texto:before {
+            content: """;
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.2);
+            position: absolute;
+            top: -20px;
+            left: -10px;
+        }
+
+        .testemunho-autor {
+            display: flex;
+            align-items: center;
+        }
+
+        .testemunho-autor img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+
+        .autor-info h4 {
+            margin-bottom: 5px;
+        }
+
+        .autor-info p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* CONTACTOS */
+        .contactos-container {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contactos-info {
+            flex: 1;
+        }
+
+        .contactos-info h3 {
+            color: var(--preto-vinho);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .info-item {
+            display: flex;
+            margin-bottom: 25px;
+        }
+
+        .info-item i {
+            color: var(--rosa-vibrante);
+            font-size: 1.2rem;
+            margin-right: 15px;
+            width: 20px;
+            margin-top: 3px;
+        }
+
+        .info-item h4 {
+            color: var(--preto-vinho);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .info-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .formulario {
+            flex: 1;
+            background: var(--cinza-claro);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .formulario h3 {
+            color: var(--preto-vinho);
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--preto-vinho);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-control:focus {
+            border-color: var(--rosa-vibrante);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(197, 46, 114, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-alert {
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .form-alert.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .form-alert.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--preto-vinho);
+            color: var(--branco);
+            padding: 60px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--rosa-claro);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--rosa-claro);
+        }
+
+        .redes-sociais {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .redes-sociais a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .redes-sociais a:hover {
+            background: var(--rosa-vibrante);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* WHATSAPP FLOAT */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: var(--branco);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 80%;
+                height: calc(100vh - 70px);
+                background-color: var(--branco);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                gap: 30px;
+                transition: right 0.4s ease;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                color: var(--preto-vinho);
+                font-size: 1.2rem;
+            }
+
+            .header-cta .cta-button {
+                display: none;
+            }
+
+            .hero-container,
+            .contactos-container {
+                flex-direction: column;
+            }
+
+            .hero {
+                text-align: center;
+                padding: 90px 0 30px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 280px;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .formulario {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo"><img src="img/logo.png" alt="ML.LA DÁDIVA" /></a>
+            
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#formacao">Formação</a></li>
+                    <li><a href="#viagens">Viagens</a></li>
+                    <li><a href="#testemunhos">Testemunhos</a></li>
+                    <li><a href="#contactos">Contactos</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-cta">
+                <a href="https://wa.me/244932489902?text=Olá! Gostaria de saber mais sobre os serviços da ML.LA DÁDIVA." class="cta-button" target="_blank">Fala Connosco</a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1>ML.LA DÁDIVA</h1>
+                <p>FORMAR E CAPACITAR PESSOAS COM ÉTICA, DIGNIDADE E IMPACTO SOCIAL, PROMOVENDO INCLUSÃO E DESENVOLVIMENTO COMUNITÁRIO ATRAVÉS DA EDUCAÇÃO, DAS VIAGENS E DA MOBILIDADE PROFISSIONAL, CAPACITANDO INDIVÍDUOS A ALCANÇAREM AUTONOMIA, SEGURANÇA E SUCESSO PROFISSIONAL.</p>
+                <div class="hero-buttons">
+                    <a href="#formacao" class="btn btn-rosa">🎓 Ver cursos disponíveis</a>
+                    <a href="#viagens" class="btn btn-rosa">✈️ Explorar destinos</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="img/hero.jpg" alt="ML.LA DÁDIVA - Agência de Viagens e Centro de Formação">
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nós -->
+    <section class="sobre" id="sobre">
+        <div class="container">
+            <div class="section-title">
+                <h2>Sobre Nós</h2>
+                <p>Conheça a nossa história, missão e valores</p>
+            </div>
+            
+            <!-- Intro Principal -->
+            <div class="sobre-intro">
+                <div class="sobre-intro-content">
+                    <h2>Quem Somos</h2>
+                    <p class="destaque">A <strong>ML.LA DÁDIVA BUSINESS WORLD</strong> é mais do que uma empresa – somos parceiros na realização dos seus sonhos e no desenvolvimento da sua carreira.</p>
+                    <p>Actuamos em quatro pilares fundamentais que transformam vidas e abrem portas para o futuro:</p>
+                </div>
+                <div class="sobre-intro-imagem">
+                    <img src="img/escritorio.jpg" alt="Equipa ML.LA DÁDIVA">
+                </div>
+            </div>
+
+            <!-- Áreas de Actuação -->
+            <div class="areas-atuacao">
+                <div class="area-card">
+                    <div class="area-icon">
+                        <i class="fas fa-plane-departure"></i>
+                    </div>
+                    <h3>Agência de Viagens</h3>
+                    <p>Organização de viagens nacionais e internacionais, mobilidade profissional e suporte documental completo.</p>
+                </div>
+
+                <div class="area-card">
+                    <div class="area-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Centro de Formação</h3>
+                    <p>Capacitação e qualificação profissional com foco em empregabilidade dentro e fora do país.</p>
+                </div>
+
+                <div class="area-card">
+                    <div class="area-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Consultoria Profissional</h3>
+                    <p>Orientação de carreira, apoio documental e organização de eventos de empregabilidade.</p>
+                </div>
+
+                <div class="area-card">
+                    <div class="area-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Serviços Complementares</h3>
+                    <p>Informações, suporte e soluções personalizadas conforme as necessidades dos clientes.</p>
+                </div>
+            </div>
+
+            <!-- Missão, Visão e Valores -->
+            <div class="mvv-section">
+                <div class="mvv-card">
+                    <div class="mvv-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Nossa Missão</h3>
+                    <p>Formar e capacitar pessoas com ética, dignidade e impacto social, promovendo inclusão e desenvolvimento comunitário através da educação, viagens e mobilidade profissional.</p>
+                </div>
+
+                <div class="mvv-card">
+                    <div class="mvv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Nossa Visão</h3>
+                    <p>Ser referência em Angola e internacionalmente, conectando pessoas a oportunidades de crescimento pessoal e profissional sustentável.</p>
+                </div>
+
+                <div class="mvv-card">
+                    <div class="mvv-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Nossos Valores</h3>
+                    <p>Integridade, Excelência, Inovação, Responsabilidade Social e Paixão genuína por transformar vidas através da educação.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section class="servicos" id="servicos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossos Serviços</h2>
+                <p>Descubra tudo o que podemos fazer por si</p>
+            </div>
+            <div class="servicos-grid">
+                <div class="servico-card">
+                    <div class="servico-imagem">
+                        <img src="img/formacao.jpg" alt="Formação Profissional">
+                    </div>
+                    <div class="servico-conteudo">
+                        <h3>Formação Profissional</h3>
+                        <p>Cursos certificados nas áreas de turismo, gestão, línguas e desenvolvimento pessoal. Prepare-se para o mercado de trabalho com os melhores formadores.</p>
+                        <a href="#formacao" class="btn btn-rosa">Saber Mais</a>
+                    </div>
+                </div>
+                
+                <div class="servico-card">
+                    <div class="servico-imagem">
+                        <img src="img/passaports.jpg" alt="Agência de Viagens">
+                    </div>
+                    <div class="servico-conteudo">
+                        <h3>Agência de Viagens</h3>
+                        <p>Pacotes de viagem personalizados para destinos nacionais e internacionais. Desde viagens de sonho a escapadinhas de fim de semana.</p>
+                        <a href="#viagens" class="btn btn-rosa">Explorar</a>
+                    </div>
+                </div>
+                
+                <div class="servico-card">
+                    <div class="servico-imagem">
+                        <img src="img/consultoria.jpg" alt="Consultoria">
+                    </div>
+                    <div class="servico-conteudo">
+                        <h3>Consultoria Personalizada</h3>
+                        <p>Aconselhamento especializado para ajudar a planear o seu percurso formativo ou a sua próxima aventura. Estamos aqui para orientar as suas decisões.</p>
+                        <a href="#contactos" class="btn btn-rosa">Marcar Consulta</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formação -->
+    <section class="formacao" id="formacao">
+        <div class="container">
+            <div class="section-title">
+                <h2>Centro de Formação</h2>
+                <p>Invista no seu futuro com os nossos cursos</p>
+            </div>
+            <div class="formacao-grid">
+                <div class="curso-card">
+                    <div class="curso-imagem">
+                        <img src="img/informatica.jpg" alt="Informática">
+                    </div>
+                    <div class="curso-conteudo">
+                        <h3>Informática</h3>
+                        <div class="curso-info">
+                            <span><i class="far fa-clock"></i> 1 Mês</span>
+                            <span>KZ 25.000</span>
+                        </div>
+                        <p>Domine as ferramentas essenciais do mundo digital: desde pacote Office avançado até programação básica. Prepare-se para os desafios do mercado de trabalho tecnológico.</p>
+                        <a href="#contactos" class="btn btn-rosa">Inscrever-se</a>
+                    </div>
+                </div>
+                
+                <div class="curso-card">
+                    <div class="curso-imagem">
+                        <img src="img/lingua.jpg" alt="Línguas Estrangeiras">
+                    </div>
+                    <div class="curso-conteudo">
+                        <h3>Línguas Estrangeiras</h3>
+                        <div class="curso-info">
+                            <span><i class="far fa-clock"></i> 9 Meses</span>
+                            <span>KZ 15.000</span>
+                        </div>
+                        <p>Aprenda inglês e francês com métodos inovadores. Turmas reduzidas e professores nativos para melhor aprendizagem.</p>
+                        <a href="#contactos" class="btn btn-rosa">Inscrever-se</a>
+                    </div>
+                </div>
+                
+                <div class="curso-card">
+                    <div class="curso-imagem">
+                        <img src="img/marketing4.jpg" alt="Marketing Digital">
+                    </div>
+                    <div class="curso-conteudo">
+                        <h3>Marketing Digital</h3>
+                        <div class="curso-info">
+                            <span><i class="far fa-clock"></i> 1 Mês</span>
+                            <span>KZ 30.000</span>
+                        </div>
+                        <p>Domine as ferramentas essenciais do marketing digital: redes sociais, SEO, email marketing e análise de dados para negócios.</p>
+                        <a href="#contactos" class="btn btn-rosa">Inscrever-se</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Viagens -->
+    <section class="viagens" id="viagens">
+        <div class="container">
+            <div class="section-title">
+                <h2>Agência de Viagens</h2>
+                <p>Descubra os nossos destinos mais populares</p>
+            </div>
+            <div class="viagens-grid">
+                <div class="viagem-card">
+                    <div class="viagem-imagem">
+                        <img src="https://images.unsplash.com/photo-1555881400-74d7acaacd8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Lisboa, Portugal">
+                        <div class="viagem-preco">Sob Consulta</div>
+                    </div>
+                    <div class="viagem-conteudo">
+                        <h3>🇵🇹 Portugal</h3>
+                        <div class="viagem-info">
+                            <span><i class="fas fa-map-marked-alt"></i> Lisboa, Porto</span>
+                            <span><i class="fas fa-plane"></i> Voo incluído</span>
+                        </div>
+                        <p>Explore a beleza histórica de Portugal! De Lisboa ao Porto, descubra castelos centenários, gastronomia única e praias deslumbrantes. Pacotes personalizados para estudos, trabalho ou turismo.</p>
+                        <a href="#contactos" class="btn btn-rosa">Solicitar Informações</a>
+                    </div>
+                </div>
+                
+                <div class="viagem-card">
+                    <div class="viagem-imagem">
+                        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Paris, França">
+                        <div class="viagem-preco">Sob Consulta</div>
+                    </div>
+                    <div class="viagem-conteudo">
+                        <h3>🇫🇷 França</h3>
+                        <div class="viagem-info">
+                            <span><i class="fas fa-map-marked-alt"></i> Paris, Lyon</span>
+                            <span><i class="fas fa-plane"></i> Voo incluído</span>
+                        </div>
+                        <p>Viva a experiência francesa! Da Torre Eiffel aos campos de lavanda, oferecemos pacotes completos para estudos, formação profissional e turismo cultural. Suporte total com documentação e visto.</p>
+                        <a href="#contactos" class="btn btn-rosa">Solicitar Informações</a>
+                    </div>
+                </div>
+                
+                <div class="viagem-card">
+                    <div class="viagem-imagem">
+                        <img src="https://images.unsplash.com/photo-1517935706615-2717063c2225?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Toronto, Canadá">
+                        <div class="viagem-preco">Sob Consulta</div>
+                    </div>
+                    <div class="viagem-conteudo">
+                        <h3>🇨🇦 Canadá</h3>
+                        <div class="viagem-info">
+                            <span><i class="fas fa-map-marked-alt"></i> Toronto, Vancouver</span>
+                            <span><i class="fas fa-plane"></i> Voo incluído</span>
+                        </div>
+                        <p>Realize o sonho canadiano! Especialistas em mobilidade internacional para estudos e trabalho. Assessoria completa para imigração, documentação e integração no país das oportunidades.</p>
+                        <a href="#contactos" class="btn btn-rosa">Solicitar Informações</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testemunhos -->
+    <section class="testemunhos" id="testemunhos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Testemunhos</h2>
+                <p>O que os nossos clientes dizem sobre nós</p>
+            </div>
+            <div class="testemunhos-grid">
+                <div class="testemunho-card">
+                    <div class="testemunho-texto">
+                        "A ML.LA DÁDIVA transformou a minha vida! Fiz o curso de Gestão de Turismo e hoje trabalho numa agência internacional. Recomendo a todos!"
+                    </div>
+                    <div class="testemunho-autor">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Maria Silva">
+                        <div class="autor-info">
+                            <h4>Maria Silva</h4>
+                            <p>Ex-aluna de Gestão de Turismo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testemunho-card">
+                    <div class="testemunho-texto">
+                        "A viagem a Bali foi incrível! Tudo foi perfeitamente organizado pela ML.LA DÁDIVA. Já estou a planear a próxima aventura com eles."
+                    </div>
+                    <div class="testemunho-autor">
+                        <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="João Santos">
+                        <div class="autor-info">
+                            <h4>João Santos</h4>
+                            <p>Cliente de Viagens</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testemunho-card">
+                    <div class="testemunho-texto">
+                        "O apoio da equipa foi fundamental para eu conseguir mudar de carreira. A formação é de alta qualidade e os formadores são excelentes."
+                    </div>
+                    <div class="testemunho-autor">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Ana Costa">
+                        <div class="autor-info">
+                            <h4>Ana Costa</h4>
+                            <p>Ex-aluna de Marketing Digital</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contactos -->
+    <section class="contactos" id="contactos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Entre em Contacto</h2>
+                <p>Estamos aqui para ajudar. Fale connosco!</p>
+            </div>
+            <div class="contactos-container">
+                <div class="contactos-info">
+                    <h3>Informações de Contacto</h3>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Morada</h4>
+                            <p>Rua Nº 107, Calumbo<br>Zango 1, Icolo e Bengo<br>Angola</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Telefone</h4>
+                            <p>+244 932 489 902</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>mlumoniladadiva@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Horário de Funcionamento</h4>
+                            <p>Segunda - Sexta: 8h00 - 18h00<br>Sábado: 9h00 - 13h00</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="formulario">
+                    <h3>Envie-nos uma Mensagem</h3>
+                    <div class="form-alert" id="formAlert"></div>
+                    <form id="contactForm" action="https://formsubmit.co/mlumoniladadiva@gmail.com" method="POST">
+                        <!-- Configurações FormSubmit -->
+                        <input type="hidden" name="_subject" value="Novo Contacto - ML.LA DÁDIVA">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="box">
+                        <input type="hidden" name="_next" value="https://seu-site.com#obrigado">
+                        
+                        <div class="form-group">
+                            <label for="nome">Nome Completo *</label>
+                            <input type="text" id="nome" name="nome" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone">Telefone *</label>
+                            <input type="tel" id="telefone" name="telefone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Área de Interesse *</label>
+                            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+                                <label style="display: flex; align-items: center; cursor: pointer; font-weight: 400;">
+                                    <input type="radio" name="interesse" value="✈️ Viagem" required style="margin-right: 10px; width: 18px; height: 18px; cursor: pointer;">
+                                    <span>✈️ Viagem</span>
+                                </label>
+                                <label style="display: flex; align-items: center; cursor: pointer; font-weight: 400;">
+                                    <input type="radio" name="interesse" value="🎓 Formação Profissional" required style="margin-right: 10px; width: 18px; height: 18px; cursor: pointer;">
+                                    <span>🎓 Formação Profissional</span>
+                                </label>
+                                <label style="display: flex; align-items: center; cursor: pointer; font-weight: 400;">
+                                    <input type="radio" name="interesse" value="💼 Consultoria" required style="margin-right: 10px; width: 18px; height: 18px; cursor: pointer;">
+                                    <span>💼 Consultoria</span>
+                                </label>
+                                <label style="display: flex; align-items: center; cursor: pointer; font-weight: 400;">
+                                    <input type="radio" name="interesse" value="🌍 Mobilidade Internacional" required style="margin-right: 10px; width: 18px; height: 18px; cursor: pointer;">
+                                    <span>🌍 Mobilidade Internacional</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensagem">Mensagem *</label>
+                            <textarea id="mensagem" name="mensagem" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-rosa" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i> Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>ML.LA DÁDIVA</h3>
+                    <p>Realizamos sonhos. Ligamos pessoas ao futuro através da formação e das viagens.</p>
+                    <div class="redes-sociais">
+                        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#sobre">Sobre Nós</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#formacao">Formação</a></li>
+                        <li><a href="#viagens">Viagens</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Serviços</h3>
+                    <ul>
+                        <li><a href="#formacao">Cursos Profissionais</a></li>
+                        <li><a href="#viagens">Pacotes de Viagem</a></li>
+                        <li><a href="#servicos">Consultoria</a></li>
+                        <li><a href="#contactos">Apoio ao Cliente</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contactos</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Rua Nº 107, Calumbo, Zango 1</li>
+                        <li><i class="fas fa-phone"></i> +244 932 489 902</li>
+                        <li><i class="fas fa-envelope"></i> mlumoniladadiva@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ML.LA DÁDIVA. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="https://wa.me/244932489902?text=Olá! Gostaria de saber mais sobre os serviços da ML.LA DÁDIVA." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Menu hambúrguer
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        
+        hamburger.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+
+        // Detectar se voltou da página de obrigado
+        if(window.location.hash === '#obrigado') {
+            const formAlert = document.getElementById('formAlert');
+            formAlert.className = 'form-alert success';
+            formAlert.style.display = 'block';
+            formAlert.innerHTML = '<i class="fas fa-check-circle"></i> Mensagem enviada com sucesso! Entraremos em contacto brevemente.';
+            
+            // Limpar hash da URL
+            history.replaceState(null, null, ' ');
+            
+            // Scroll para a seção de contactos
+            document.getElementById('contactos').scrollIntoView({ behavior: 'smooth' });
+            
+            // Esconder alerta após 8 segundos
+            setTimeout(() => {
+                formAlert.style.display = 'none';
+            }, 8000);
+        }
+    </script>
+</body>
+</html>
